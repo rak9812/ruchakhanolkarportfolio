@@ -22,38 +22,6 @@ const { title, description = "Personal portfolio showcasing work, writing, and c
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <title>{title}</title>
-    <style>
-      * {
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
-      }
-      
-      /* Prevent body scroll when panel is open */
-      body.panel-open {
-        overflow: hidden !important;
-        position: fixed;
-        width: 100%;
-      }
-      
-      /* Ensure panel content scrolls properly */
-      #sidePanelBody {
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: thin;
-        scrollbar-color: #cbd5e0 transparent;
-      }
-      
-      #sidePanelBody::-webkit-scrollbar {
-        width: 6px;
-      }
-      
-      #sidePanelBody::-webkit-scrollbar-track {
-        background: transparent;
-      }
-      
-      #sidePanelBody::-webkit-scrollbar-thumb {
-        background-color: #cbd5e0;
-        border-radius: 3px;
-      }
-    </style>
   </head>
   <body class="min-h-screen bg-white text-gray-900">
     <main>
