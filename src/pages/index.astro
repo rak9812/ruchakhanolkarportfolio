@@ -58,11 +58,11 @@ import Layout from '../layouts/Layout.astro';
     <div class="absolute inset-0 bg-black bg-opacity-50" onclick="closeSidePanel()"></div>
     
     <!-- Side Panel -->
-    <div class="absolute right-0 top-0 h-full w-1/2 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out" id="sidePanelContent">
+    <div class="absolute right-0 top-0 h-full w-full md:w-1/2 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out" id="sidePanelContent">
       <!-- Header -->
-      <div class="flex items-center justify-between p-6 border-b border-gray-200">
-        <h2 id="sidePanelTitle" class="text-xl font-light text-gray-900"></h2>
-        <button onclick="closeSidePanel()" class="p-2 hover:bg-gray-100 rounded-full transition-colors">
+      <div class="flex items-center justify-between p-4 md:p-6 border-b border-gray-200">
+        <h2 id="sidePanelTitle" class="text-lg md:text-xl font-light text-gray-900"></h2>
+        <button onclick="closeSidePanel()" class="p-3 md:p-2 hover:bg-gray-100 rounded-full transition-colors">
           <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
           </svg>
@@ -70,7 +70,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
       
       <!-- Content -->
-      <div class="p-6 overflow-y-auto h-full pb-32" id="sidePanelBody">
+      <div class="p-4 md:p-6 overflow-y-auto h-full pb-32" id="sidePanelBody">
         <!-- Dynamic content will be loaded here -->
       </div>
     </div>
