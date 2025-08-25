@@ -1,0 +1,203 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const recentProjects = [
+  {
+    title: "Event Management Platform",
+    description: "UX design for a comprehensive event planning and management website with integrated ticketing system",
+    category: "ux | website + events | capstone",
+    image: "gradient-to-br from-blue-400 to-purple-500",
+    link: "#"
+  },
+  {
+    title: "Corporate Website Redesign",
+    description: "Full-stack development and UX design for a corporate website during co-op placement",
+    category: "ux + code | website | co-op",
+    image: "gradient-to-br from-green-400 to-blue-500",
+    link: "#"
+  },
+  {
+    title: "Mobile Banking App",
+    description: "UX design for a mobile banking application focused on improving user onboarding and transaction flows",
+    category: "ux | app | @publicis sapient",
+    image: "gradient-to-br from-purple-500 to-pink-500",
+    link: "#"
+  },
+  {
+    title: "Health & Wellness App",
+    description: "Mobile app design project focusing on user engagement and habit tracking for wellness goals",
+    category: "ux | app | classwork",
+    image: "gradient-to-br from-orange-400 to-red-500",
+    link: "#"
+  }
+];
+
+const archivedProjects = [
+  {
+    title: "Hackathon Project",
+    description: "Rapid prototyping and UX design for a social impact web application during 48-hour hackathon",
+    category: "ux | website | hackathon",
+    image: "gradient-to-br from-indigo-400 to-blue-500",
+    link: "#"
+  },
+  {
+    title: "Typography Study",
+    description: "Print design project exploring typographic hierarchy and layout principles",
+    category: "typography | print | classwork",
+    image: "gradient-to-br from-gray-400 to-gray-600",
+    link: "#"
+  },
+  {
+    title: "E-learning Platform",
+    description: "Website design for an educational platform with focus on accessibility and user engagement",
+    category: "ux | website | classwork",
+    image: "gradient-to-br from-yellow-400 to-orange-500",
+    link: "#"
+  },
+  {
+    title: "Task Management App",
+    description: "Mobile app UX design project focusing on productivity and team collaboration features",
+    category: "ux | app | classwork",
+    image: "gradient-to-br from-teal-400 to-green-500",
+    link: "#"
+  },
+  {
+    title: "Open Source Contribution",
+    description: "Code contributions to open source projects with focus on frontend development and accessibility",
+    category: "code | github | classwork",
+    image: "gradient-to-br from-purple-400 to-indigo-500",
+    link: "#"
+  },
+  {
+    title: "Interactive Prototype",
+    description: "Full-stack development of an interactive prototype with React frontend and Node.js backend",
+    category: "ux + code | app | classwork",
+    image: "gradient-to-br from-rose-400 to-pink-500",
+    link: "#"
+  },
+  {
+    title: "Portfolio Website v1",
+    description: "Personal portfolio website built with HTML, CSS, and JavaScript showcasing early projects",
+    category: "code | website | classwork",
+    image: "gradient-to-br from-blue-400 to-indigo-500",
+    link: "#"
+  },
+  {
+    title: "Restaurant Website",
+    description: "Static website design and development for a local restaurant with focus on mobile responsiveness",
+    category: "code | website | classwork",
+    image: "gradient-to-br from-amber-400 to-orange-500",
+    link: "#"
+  }
+];
+---
+
+<Layout title="Portfolio - Rucha Khanolkar" description="UX design portfolio showcasing digital projects and user experience work">
+  <!-- Header Section -->
+  <section class="py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h1 class="text-4xl sm:text-5xl font-light text-gray-900 mb-6">
+          Portfolio
+        </h1>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+          A collection of UX design projects, web development work, and creative explorations 
+          spanning various technologies and design disciplines.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recent Work Section -->
+  <section class="py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-normal text-gray-900 mb-12">
+        Recent work
+      </h2>
+      
+      <div class="space-y-8">
+        {recentProjects.map((project) => (
+          <div class="border-b border-gray-200 pb-8">
+            <div class={`w-full h-64 bg-${project.image} rounded-lg mb-4 group cursor-pointer`}>
+              <div class="w-full h-full bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300 rounded-lg flex items-center justify-center">
+                <a href={project.link} class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white text-gray-900 px-4 py-2 rounded-full text-sm font-medium">
+                  View Project
+                </a>
+              </div>
+            </div>
+            <p class="text-gray-600 text-sm mb-2">
+              <span class="font-medium">{project.category}</span>
+            </p>
+            <h3 class="text-lg font-medium text-gray-900 mb-2">{project.title}</h3>
+            <p class="text-gray-600 text-sm">{project.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Archived Work Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-normal text-gray-900 mb-12">
+        Archived work
+      </h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {archivedProjects.map((project) => (
+          <div class="bg-white rounded-lg p-6 group cursor-pointer hover:shadow-md transition-shadow duration-300">
+            <div class={`w-full h-48 bg-${project.image} rounded-lg mb-4`}>
+              <div class="w-full h-full bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300 rounded-lg flex items-center justify-center">
+                <a href={project.link} class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white text-gray-900 px-4 py-2 rounded-full text-sm font-medium">
+                  View Project
+                </a>
+              </div>
+            </div>
+            <p class="text-gray-600 text-sm mb-2">
+              <span class="font-medium">{project.category}</span>
+            </p>
+            <h3 class="text-base font-medium text-gray-900 mb-2">{project.title}</h3>
+            <p class="text-gray-600 text-xs">{project.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact CTA Section -->
+  <section class="py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl font-light text-gray-900 mb-8">
+        let's get in touch!
+      </h2>
+      <a href="/contact" class="inline-flex items-center px-8 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 transition-colors">
+        Contact Me
+      </a>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Filter functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => {
+          btn.classList.remove('active', 'bg-gray-900', 'text-white');
+          btn.classList.add('bg-gray-100', 'text-gray-700');
+        });
+        
+        // Add active class to clicked button
+        this.classList.add('active', 'bg-gray-900', 'text-white');
+        this.classList.remove('bg-gray-100', 'text-gray-700');
+        
+        // Here you could add filtering logic for projects
+        // For now, it's just visual feedback
+      });
+    });
+  });
+</script>
+

@@ -1,0 +1,1249 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Personal portfolio showcasing work, writing, and ceramics" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <title>{title}</title>
+    <style>
+      * {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen bg-white text-gray-900">
+    <main>
+      <slot />
+    </main>
+
+    <footer class="bg-white border-t border-gray-200 mt-20">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="text-center text-gray-600 text-sm">
+          <p>&copy; Rucha Khanolkar 2025. All Rights Reserved.</p>
+          <p class="mt-2">Built with Cursor AI.</p>
+          <div class="mt-4 flex justify-center space-x-2">
+            <span>🐙🐙🐙</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      window.openSidePanel = function(section) {
+        const panel = document.getElementById('sidePanel');
+        const content = document.getElementById('sidePanelContent');
+        const title = document.getElementById('sidePanelTitle');
+        const body = document.getElementById('sidePanelBody');
+        
+        if (!panel || !content || !title || !body) {
+          console.error('Side panel elements not found');
+          return;
+        }
+        
+        // Set content based on section
+        const contentMap = {
+          'work': {
+            title: 'Work',
+            content: `
+              <div class="relative">
+                <!-- Vertical Timeline Line -->
+                <div class="absolute left-6 top-0 bottom-0 w-0.5 bg-gray-300"></div>
+                
+                <div class="space-y-12">
+                  <!-- Fiserv Project - 2025 -->
+                  <div class="relative flex items-start">
+                                     <!-- Timeline Dot -->
+                 <div class="absolute left-4 w-4 h-4 bg-orange-500 rounded-full border-2 border-white shadow-md z-10"></div>
+                    <!-- Content -->
+                    <div class="ml-12 flex-1">
+                      <div class="mb-4">
+                        <span class="inline-block px-2 py-1 bg-orange-100 text-orange-800 text-xs font-medium rounded-full">2025</span>
+                      </div>
+                      <div class="w-full h-32 bg-gray-50 rounded-lg mb-4 flex items-center justify-center p-6">
+                        <img src="/fiserv.svg.png" alt="Fiserv Logo" class="max-w-full max-h-full object-contain">
+                      </div>
+                      <h3 class="text-lg font-medium text-gray-900 mb-2">Product Manager MBA Intern</h3>
+                      <p class="text-gray-600 text-sm mb-3">Fiserv</p>
+                      <p class="text-gray-700 text-sm">Developed a 3-year product strategy and financial model for a debt collections platform, uncovering $3M+ revenue opportunities, 10+ strategic clients, and directly shaping product investment decisions.</p>
+                    </div>
+                  </div>
+
+                  <!-- Publicis Sapient Project - 2020-2024 -->
+                  <div class="relative flex items-start">
+                                     <!-- Timeline Dot -->
+                 <div class="absolute left-4 w-4 h-4 bg-red-500 rounded-full border-2 border-white shadow-md z-10"></div>
+                    <!-- Content -->
+                    <div class="ml-12 flex-1">
+                      <div class="mb-4">
+                        <span class="inline-block px-2 py-1 bg-red-100 text-red-800 text-xs font-medium rounded-full">2020 - 2024</span>
+                      </div>
+                      <div class="w-full h-32 bg-gray-50 rounded-lg mb-4 flex items-center justify-center p-6">
+                        <img src="/publicissapient.svg.png" alt="Publicis Sapient Logo" class="max-w-full max-h-full object-contain">
+                      </div>
+                      <h3 class="text-lg font-medium text-gray-900 mb-2">UX Designer</h3>
+                      <p class="text-gray-600 text-sm mb-3">Publicis Sapient</p>
+                      <p class="text-gray-700 text-sm">Redesigned and scaled digital experiences across trucking, energy, telecom, and shipping, driving +30% user conversion, +70% satisfaction, and a 32% revenue lift through user research, prototyping, agile collaboration, and design system development.</p>
+                      <button onclick="openSidePanel('verizon')" class="mt-3 inline-block px-4 py-2 bg-red-100 text-red-700 hover:bg-red-200 text-sm font-medium rounded-md cursor-pointer transition-colors">
+                        Verizon Case Study
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Decibel Therapeutics Project - 2019 -->
+                  <div class="relative flex items-start">
+                    <!-- Timeline Dot -->
+                    <div class="absolute left-4 w-4 h-4 bg-blue-500 rounded-full border-2 border-white shadow-md z-10"></div>
+                    <!-- Content -->
+                    <div class="ml-12 flex-1">
+                      <div class="mb-4">
+                        <span class="inline-block px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full">2019</span>
+                      </div>
+                      <div class="w-full h-32 bg-gray-50 rounded-lg mb-4 flex items-center justify-center p-6">
+                        <img src="/decibeltherapeutics.jpg" alt="Decibel Therapeutics Logo" class="max-w-full max-h-full object-contain">
+                      </div>
+                      <h3 class="text-lg font-medium text-gray-900 mb-2">Software Engineer</h3>
+                      <p class="text-gray-600 text-sm mb-3">Decibel Therapeutics</p>
+                      <p class="text-gray-700 text-sm">Built data visualization and tracking tools in Python to streamline R&D, enabling scientists to analyze clinical data and standardize study management.</p>
+                      <button onclick="openSidePanel('studytracker')" class="mt-3 inline-block px-4 py-2 bg-blue-100 text-blue-700 hover:bg-blue-200 text-sm font-medium rounded-md cursor-pointer transition-colors">
+                        Study Tracker Case Study
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            `
+          },
+          'archived': {
+            title: 'Archived',
+            content: `
+              <div class="space-y-6">
+                <div class="border-b border-gray-200 pb-6">
+                  <div class="w-full h-40 rounded-lg mb-4 cursor-pointer hover:opacity-80 transition-opacity overflow-hidden flex items-center justify-center" style="background-color: #FCECE2;" onclick="openSidePanel('rosebudthorn')">
+                    <img src="/rosebudthorn.png" alt="Rose Bud Thorn" class="max-w-full max-h-full object-contain">
+                  </div>
+                  <h3 class="text-base font-medium text-gray-900 mb-2">Rose Bud Thorn</h3>
+                  <p class="text-gray-600 text-xs mb-2">ux + code | app | classwork</p>
+                  <p class="text-gray-700 text-sm">Interactive app design and development project exploring user experience and interface design principles.</p>
+                </div>
+                <div class="border-b border-gray-200 pb-6">
+                  <div class="w-full h-40 rounded-lg mb-4 cursor-pointer hover:opacity-80 transition-opacity overflow-hidden flex items-center justify-center bg-blue-50" onclick="openSidePanel('mychart')">
+                    <img src="/mychart.png" alt="MyChart" class="max-w-full max-h-full object-contain">
+                  </div>
+                  <h3 class="text-base font-medium text-gray-900 mb-2">MyChart</h3>
+                  <p class="text-gray-600 text-xs mb-2">ux | app | classwork</p>
+                  <p class="text-gray-700 text-sm">Healthcare app redesign focusing on improving patient experience and workflow efficiency.</p>
+                </div>
+                <div class="border-b border-gray-200 pb-6">
+                  <div class="w-full h-40 rounded-lg mb-4 cursor-pointer hover:opacity-80 transition-opacity overflow-hidden flex items-center justify-center bg-green-50" onclick="openSidePanel('curiousboston')">
+                    <img src="/curiousboston.png" alt="Curious Boston" class="max-w-full max-h-full object-contain">
+                  </div>
+                  <h3 class="text-base font-medium text-gray-900 mb-2">Curious Boston</h3>
+                  <p class="text-gray-600 text-xs mb-2">ux research | data | classwork</p>
+                  <p class="text-gray-700 text-sm">Winner of the Data and Digital Storytelling award at RISE 2020. Research project working with the City of Boston to understand data needs of community organizations.</p>
+                </div>
+                <div class="border-b border-gray-200 pb-6">
+                  <div class="w-full h-40 rounded-lg mb-4 cursor-pointer hover:opacity-80 transition-opacity overflow-hidden flex items-center justify-center bg-purple-50" onclick="openSidePanel('designclasswork')">
+                    <img src="/g.png" alt="Design Class Work" class="max-w-full max-h-full object-contain">
+                  </div>
+                  <h3 class="text-base font-medium text-gray-900 mb-2">Design Class Work</h3>
+                  <p class="text-gray-600 text-xs mb-2">design | posters | classwork</p>
+                  <p class="text-gray-700 text-sm">Collection of posters and typography work from design classes.</p>
+                </div>
+                <div class="border-b border-gray-200 pb-6">
+                  <a href="https://collaboredit.ruchakhanolkar.com/" target="_blank" rel="noopener noreferrer" class="block">
+                    <div class="w-full h-40 rounded-lg mb-4 cursor-pointer hover:opacity-80 transition-opacity overflow-hidden flex items-center justify-center bg-orange-100">
+                      <img src="/collaboredit.png" alt="Collaboredit" class="max-w-full max-h-full object-contain">
+                    </div>
+                    <h3 class="text-base font-medium text-gray-900 mb-2">Collaboredit</h3>
+                    <p class="text-gray-600 text-xs mb-2">design | website | classwork</p>
+                    <p class="text-gray-700 text-sm">Instagram-inspired collaborative editing platform designed for 5D Fundamentals class.</p>
+                  </a>
+                </div>
+                <div>
+                  <a href="https://fogxflo.ruchakhanolkar.com/" target="_blank" rel="noopener noreferrer" class="block">
+                    <div class="w-full h-40 rounded-lg mb-4 cursor-pointer hover:opacity-80 transition-opacity overflow-hidden flex items-center justify-center bg-teal-100">
+                      <img src="/fogxflo.png" alt="fogxFLO" class="max-w-full max-h-full object-contain">
+                    </div>
+                    <h3 class="text-base font-medium text-gray-900 mb-2">fogxFLO</h3>
+                    <p class="text-gray-600 text-xs mb-2">design | website | classwork</p>
+                    <p class="text-gray-700 text-sm">Minimalist design project exploring fog and flow concepts.</p>
+                  </a>
+                </div>
+              </div>
+            `
+                  },
+        'verizon': {
+          title: 'Verizon Case Study',
+          content: `
+            <div class="space-y-8">
+              <!-- Back Button -->
+              <div class="mb-6">
+                <button onclick="openSidePanel('work')" class="flex items-center text-gray-600 hover:text-gray-800 text-sm font-medium cursor-pointer transition-colors">
+                  <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                  </svg>
+                  Back to Work
+                </button>
+              </div>
+
+              <!-- Phone Images -->
+              <div class="flex justify-center gap-4 mb-8">
+                <div class="flex-shrink-0">
+                  <img src="/vzphone1.png" alt="Verizon Phone 1" class="h-64 w-auto object-contain">
+                </div>
+                <div class="flex-shrink-0">
+                  <img src="/vzphone2.png" alt="Verizon Phone 2" class="h-64 w-auto object-contain">
+                </div>
+                <div class="flex-shrink-0">
+                  <img src="/vzphone3.png" alt="Verizon Phone 3" class="h-64 w-auto object-contain">
+                </div>
+              </div>
+
+              <div class="intro-section">
+                <p class="text-lg text-gray-700 mb-6">
+                  Helping customers reach all of their security goals and needs in one centralized place.
+                </p>
+                <p class="text-gray-700">
+                  A project created to inspire future state thinking for Verizon's consolidated user security dashboard. We designed 3 main experiences: smart setup, dashboard, and a "wrap report" for this future state pitch deck. This case study focuses on the account holder's smart setup experience.
+                </p>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- The Problem -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">The Problem</h3>
+                <div class="w-full mb-4">
+                  <img src="/vzapps.png" alt="Verizon Apps" class="w-full h-auto object-contain">
+                </div>
+                <div class="text-content">
+                  <p class="text-gray-700">Within the Verizon ecosystem, there are dozens of apps for their customers. The client was looking to create a centralized dashboard for users to setup, view and manage all of their security settings. Over the months, we helped design a setup experience, dashboard experience, as well as an experience to view overall security stats and ratings based on your profile.
+
+The client was looking for a dashboard and an easy way for users to set up their security settings.</p>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- The Research -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">The Research</h3>
+                <div class="w-full mb-4">
+                  <img src="/vzoppareas.png" alt="Verizon Opportunity Areas" class="w-full h-auto object-contain">
+                </div>
+                <div class="text-content">
+                  <p class="text-gray-700">Before starting this project, we took a step back to look at overarching themes to help guide our designs. Key findings were that copy needed to be minimal and easy to understand, the experience needed to be customized to fit the user's needs and there needed to be transparency between each step so the user felt engaged during the process.</p>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- The Sketches -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">The Sketches</h3>
+                <div class="w-full mb-4">
+                  <img src="/vzsketches.jpg" alt="Verizon Sketches" class="w-full h-auto object-contain">
+                </div>
+                <div class="text-content">
+                  <p class="text-gray-700">I researched existing security platforms, as well as other mobile apps that used similar interaction patterns for quizzes and smart setup experiences. Here are some of the very initial sketches I created.
+
+The smart setup would consist of
+* an introduction
+* a series of questions to customize the primary user’s experience
+* a transparent automated profile setup
+* confirmation of the profile and settings</p>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- The Flow -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">The Flow</h3>
+                <div class="w-full mb-4">
+                  <img src="/vzflow.png" alt="Verizon Flow" class="w-full h-auto object-contain">
+                </div>
+                <div class="text-content">
+                  <p class="text-gray-700">A very basic low-fidelity flow for this experience.</p>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- The Iterations -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">The Iterations</h3>
+                <div class="w-full mb-4">
+                  <img src="/vziterations.png" alt="Verizon Iterations" class="w-full h-auto object-contain">
+                </div>
+                <div class="text-content">
+                  <p class="text-gray-700">I iterated on the screens for many months. Every week I presented designs to the client for feedback. Over the months, new requirements appeared and the amount of flows grew exponentially.
+
+The final smart setup flow consisted of three distinct portions:
+* Creating profiles for all account users
+* Setting up all personal and work devices and placing each device into a group (to optimize security settings)
+* Applying security settings to all of these devices</p>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- The Challenges -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">The Challenges</h3>
+                <div class="text-content">
+                  <p class="text-gray-700">Given time restraints and lack of data for security settings, we were only able to design the first two portions of this smart setup process. Overall, this process was challenging because it involved bringing together several incoherent experiences. This meant talking to various stakeholders and trying to convince them to get onboard with this unified vision.</p>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- The Final Screens -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">The Final Screens</h3>
+                <div class="w-full mb-4">
+                  <img src="/vzfinalscreens.png" alt="Verizon Final Screens" class="w-full h-auto object-contain">
+                </div>
+              </div>
+            </div>
+          `
+        },
+        'studytracker': {
+          title: 'Study Tracker Case Study',
+          content: `
+            <div class="space-y-8">
+              <!-- Back Button -->
+              <div class="mb-6">
+                <button onclick="openSidePanel('work')" class="flex items-center text-gray-600 hover:text-gray-800 text-sm font-medium cursor-pointer transition-colors">
+                  <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                  </svg>
+                  Back to Work
+                </button>
+              </div>
+
+              <div class="intro-section">
+                <p class="text-lg text-gray-700 mb-6">
+                  Streamlining R&D processes through intuitive study tracking and data visualization.
+                </p>
+                <p class="text-gray-700">
+                  A comprehensive tool designed to help scientists at Decibel Therapeutics standardize research study management, organize clinical data, and visualize microscope images in one centralized platform.
+                </p>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- The Problem -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">The Problem</h3>
+                <div class="text-content">
+                  <p class="text-gray-700">Decibel is a biotech company with many studies being conducted. Currently, each team stores their study information in different places and in different ways. There is a lack of consistency and searchability which leads to less transparency in the organization. There is also a lot of manual data entry that can be automated to produce more accurate results.</p>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- The Solution -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">The Solution</h3>
+                <div class="text-content">
+                  <p class="text-gray-700">Study Tracker: an in house study tracking software that will be a key part of the Decibel Data ecosystem. It will be the foundation stone on which scientific questions are answered. Study Tracker has a lot of features like being able to assign a unique ID to each study, integration with other technologies used throughout the company, applying metadata from controlled vocabularies to each study and an easily searchable interface to find those studies. I primarily worked on the metadata component for Study Tracker.</p>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- The Metadata -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">The Metadata</h3>
+                <div class="text-content">
+                  <p class="text-gray-700">1. Controlled vocabulary (ex. Genes, Viruses, Plasmids)
+2. Data comes from different sources (ex. NCBI, ChemAxon, etc.)
+3. Studies need to be tagged
+4. Images need to be tagged
+5. This ecosystem needs to be searchable
+6. Metadata component must be reusable</p>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- The Prototyping -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">The Prototyping</h3>
+                <div class="w-full mb-4">
+                  <img src="/dtstudytrackerprototype.png" alt="Decibel Study Tracker Prototype" class="w-full h-auto object-contain">
+                </div>
+                <div class="text-content">
+                  <p class="text-gray-700">I mainly prototyped in Adobe XD. For this particular component I did a lot of research of other scientific websites and how they implement searching for metadata. I foun that the component needed to contain long textual sentences so I had to design keeping that in mind. The first version I created was too complicated and had too much information. Then, I decided to make the search component in two parts. The person must first filter by type of metadata, and then they can search for the specific data point. This makes it less confusing for the user and through user testing I found that users found what they were looking for more quickly.</p>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- The Development -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">The Development</h3>
+
+                <div class="text-content">
+                  <p class="text-gray-700">1. Elastic Search
+
+An open-source, RESTful, distributed search and analytics engine. I used Elastic Search to index the data coming from various API's. I wrote python scripts to sort through the data from various inventories. Elastic Search then stores this data with appropriate unique id's and also adds a searchable reference to each document.
+
+2. React
+
+I used React to build the actual search component. I did a lot of styling based on Decibel guidelines to make the component sleeker.</p>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- The Current State -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">The Current State</h3>
+                <div class="w-full mb-4">
+                  <div class="w-full h-48 bg-gray-100 rounded-lg flex items-center justify-center">
+                    <span class="text-gray-500 text-sm">Image placeholder</span>
+                  </div>
+                </div>
+                <div class="text-content">
+                  <p class="text-gray-700">Text content will be added here.</p>
+                </div>
+              </div>
+            </div>
+          `
+        },
+        'mychart': {
+          title: 'MyChart Case Study',
+          content: `
+            <div class="space-y-8">
+              <!-- Back Button -->
+              <div class="mb-6">
+                <button onclick="openSidePanel('archived')" class="flex items-center text-gray-600 hover:text-gray-800 text-sm font-medium cursor-pointer transition-colors">
+                  <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                  </svg>
+                  Back to Archived
+                </button>
+              </div>
+
+              <!-- iPhone Image -->
+              <div class="flex justify-center mb-8">
+                <img src="/mychartiphone.png" alt="MyChart iPhone" class="h-64 w-auto object-contain">
+              </div>
+
+              <div class="intro-section">
+                <p class="text-lg text-gray-700 mb-6">
+                  Redesign of a mobile health app used in the Boston area to book doctors appointments.
+                </p>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- The Process -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">The Process</h3>
+                <div class="text-content">
+                  <p class="text-gray-700">This is a project I worked on in my Interaction Design class in 2019. I worked on improving the general interface design of a mobile application I use to book my doctors appointments.</p>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- The Current Workflow -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">The Current Workflow</h3>
+                <div class="w-full mb-4">
+                  <img src="/mychartcurrentworkflow.png" alt="MyChart Current Workflow" class="w-full h-auto object-contain">
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- The Updated Sitemap -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">The Updated Sitemap</h3>
+                <div class="w-full mb-4">
+                  <img src="/mychartsitemap.png" alt="MyChart Updated Sitemap" class="w-full h-auto object-contain">
+                </div>
+                <div class="text-content">
+                  <p class="text-gray-700">I wanted to simplify the workflows by focusing on these four main interactions. For the final screens, I decided to focus on the appointment booking workflow.</p>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- The VD Spec -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">The VD Spec</h3>
+                <div class="w-full mb-4">
+                  <img src="/mychartvdspec.png" alt="MyChart VD Spec" class="w-full h-auto object-contain">
+                </div>
+                <div class="text-content">
+                  <p class="text-gray-700">Here are some of the final screens I ended up designing. I reorganized some of the main workflows so that the user could easily access them using the bottom navigation bar. I used bolder colors to guide the user through different workflows. Lastly, I minimized the amount of buttons and information on each screen so that the user could focus on each interaction they wanted to make per screen.</p>
+                </div>
+              </div>
+            </div>
+          `
+        },
+        'designclasswork': {
+          title: 'Design Class Work',
+          content: `
+            <div class="space-y-8">
+              <!-- Back Button -->
+              <div class="mb-6">
+                <button onclick="openSidePanel('archived')" class="flex items-center text-gray-600 hover:text-gray-800 text-sm font-medium cursor-pointer transition-colors">
+                  <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                  </svg>
+                  Back to Archived
+                </button>
+              </div>
+
+              <div class="intro-section">
+                <p class="text-lg text-gray-700 mb-6">
+                  A couple of posters and other type work I have done in class. Please click on them to see the works nice and big!
+                </p>
+              </div>
+
+              <!-- Typography Gallery -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="flex justify-center">
+                  <a href="/typecherryorchard.pdf" target="_blank" rel="noopener noreferrer" class="cursor-pointer hover:opacity-80 transition-opacity">
+                    <img src="/typecherryorchard.png" alt="Cherry Orchard Typography" class="w-full h-auto object-contain rounded-lg shadow-sm">
+                  </a>
+                </div>
+                <div class="flex justify-center">
+                  <a href="/typehopeandwater.pdf" target="_blank" rel="noopener noreferrer" class="cursor-pointer hover:opacity-80 transition-opacity">
+                    <img src="/typehopeandwater.png" alt="Hope and Water Typography" class="w-full h-auto object-contain rounded-lg shadow-sm">
+                  </a>
+                </div>
+                <div class="flex justify-center">
+                  <a href="/typeenvdesigncover.pdf" target="_blank" rel="noopener noreferrer" class="cursor-pointer hover:opacity-80 transition-opacity">
+                    <img src="/typeenvdesigncover.png" alt="Environmental Design Cover" class="w-full h-auto object-contain rounded-lg shadow-sm">
+                  </a>
+                </div>
+                <div class="flex justify-center">
+                  <a href="/typedidot.pdf" target="_blank" rel="noopener noreferrer" class="cursor-pointer hover:opacity-80 transition-opacity">
+                    <img src="/typedidot.png" alt="Didot Typography" class="w-full h-auto object-contain rounded-lg shadow-sm">
+                  </a>
+                </div>
+                <div class="flex justify-center">
+                  <a href="/typemagazinecover.pdf" target="_blank" rel="noopener noreferrer" class="cursor-pointer hover:opacity-80 transition-opacity">
+                    <img src="/typemagazinecover.png" alt="Magazine Cover Typography" class="w-full h-auto object-contain rounded-lg shadow-sm">
+                  </a>
+                </div>
+                <div class="flex justify-center">
+                  <a href="/typeglassesfinal.pdf" target="_blank" rel="noopener noreferrer" class="cursor-pointer hover:opacity-80 transition-opacity">
+                    <img src="/typeglassesfinal.png" alt="Glasses Final Typography" class="w-full h-auto object-contain rounded-lg shadow-sm">
+                  </a>
+                </div>
+                <div class="flex justify-center">
+                  <a href="/typejourneys.pdf" target="_blank" rel="noopener noreferrer" class="cursor-pointer hover:opacity-80 transition-opacity">
+                    <img src="/typejourneys.png" alt="Journeys Typography" class="w-full h-auto object-contain rounded-lg shadow-sm">
+                  </a>
+                </div>
+                <div class="flex justify-center">
+                  <a href="/typecountry-1.pdf" target="_blank" rel="noopener noreferrer" class="cursor-pointer hover:opacity-80 transition-opacity">
+                    <img src="/typecountry-1.png" alt="Country Typography" class="w-full h-auto object-contain rounded-lg shadow-sm">
+                  </a>
+                </div>
+                <div class="flex justify-center">
+                  <a href="/typesandwich.pdf" target="_blank" rel="noopener noreferrer" class="cursor-pointer hover:opacity-80 transition-opacity">
+                    <img src="/typesandwich.jpg" alt="Sandwich Typography" class="w-full h-auto object-contain rounded-lg shadow-sm">
+                  </a>
+                </div>
+              </div>
+            </div>
+          `
+        },
+        'rosebudthorn': {
+          title: 'Rose Bud Thorn Case Study',
+          content: `
+            <div class="space-y-8">
+              <!-- Back Button -->
+              <div class="mb-6">
+                <button onclick="openSidePanel('archived')" class="flex items-center text-gray-600 hover:text-gray-800 text-sm font-medium cursor-pointer transition-colors">
+                  <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                  </svg>
+                  Back to Archived
+                </button>
+              </div>
+
+              <!-- iPhone Image -->
+              <div class="flex justify-center mb-8">
+                <img src="/rosebudthorniphone.png" alt="Rose Bud Thorn iPhone" class="h-64 w-auto object-contain">
+              </div>
+
+              <div class="intro-section">
+                <p class="text-lg text-gray-700 mb-6">
+                  A reflection and journaling app designed to help users practice mindful self-assessment.
+                </p>
+                <p class="text-gray-700">
+                  For students who need help getting into the routine of writing every day, Rose Bud Thorn is an app that provides a simple set of questions that allows people to make quick entries. With a simple user interface, Rose Bud Thorn makes diary writing a low stress experience.
+                </p>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- The Process -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">The Process</h3>
+                <div class="text-content">
+                  <p class="text-gray-700">Rose Bud Thorn is a project I started on my own in the Summer of 2019. Over the past year, I have workshopped the design and development of the mobile app in my Interaction Design 2 and Human Computer Interaction classes.</p>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- Goals -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">Goals</h3>
+                <div class="text-content">
+                  <p class="text-gray-700">Write a sentence.
+Write a paragraph.
+Write an emoji.
+Just. Write. Something</p>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- Mission Statement -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">Mission Statement</h3>
+                <div class="text-content">
+                  <p class="text-gray-700">I wanted to create something to give people a place to write down their thoughts to create a daily routine of reflection and introspection, no matter how busy and hectic their life might be. I also wanted to empower people to create a reflection routine that eventually betters their mental health.</p>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- Initial Sketches -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">Initial Sketches</h3>
+                <div class="w-full mb-4">
+                  <img src="/rbtinitialsketches.png" alt="Rose Bud Thorn Initial Sketches" class="w-full h-auto object-contain">
+                </div>
+                <div class="text-content">
+                  <p class="text-gray-700">A couple of my initial sketches that I digitized.</p>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- Brand Audit -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">Brand Audit</h3>
+                <div class="w-full mb-4">
+                  <img src="/rbtbrandaudit.png" alt="Rose Bud Thorn Brand Audit" class="w-full h-auto object-contain">
+                </div>
+                <div class="text-content">
+                  <p class="text-gray-700">As part of my background research, I conducted a brand audit to better understand what products currently exist. I realized that many cost money, and the ones that are free have a very cluttered user interface. I wanted to make something that would be free, but also have a breathable design.</p>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- Branding + Logo -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">Branding + Logo</h3>
+                <div class="w-full mb-4 flex justify-center space-x-4">
+                  <img src="/rbtbranding2.png" alt="Rose Bud Thorn Branding and Logo" class="w-1/4 h-auto object-contain">
+                  <img src="/rbtbranding3.png" alt="Rose Bud Thorn Branding Variation 1" class="w-1/4 h-auto object-contain">
+                  <img src="/rbtbranding4.png" alt="Rose Bud Thorn Branding Variation 2" class="w-1/4 h-auto object-contain">
+                </div>
+                <div class="text-content">
+                  <p class="text-gray-700">I wanted to stick to the "Rose Bud Thorn" theme which is derived from an old Girl Scout's tradition where every day you would tell the group a Rose (something good that happened that day), Bud (something you are excited about) and a thorn (something that didn't go too well). Playing off of this framework, I decided to incorporate a rose into my branding, and the colors and typography evolved from that.</p>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- Hero's Journey -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">Hero's Journey</h3>
+                <div class="w-full mb-4 flex justify-center space-x-4">
+                  <img src="/rbtherojourney1.png" alt="Rose Bud Thorn Hero's Journey" class="w-1/2 h-auto object-contain">
+                  <img src="/rbtherojourney2.png" alt="Rose Bud Thorn Hero's Journey Variation" class="w-1/2 h-auto object-contain">
+                </div>
+                <div class="text-content">
+                  <p class="text-gray-700">To better understand how a user might use this application, I created and workshopped a hero's journey. This was a really fun exercise that helped me figure out certain interactions I wanted to focus on while prototyping.</p>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- Storyboarding -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">Storyboarding</h3>
+                <div class="w-full mb-4">
+                  <img src="/rbtstoryboard1.jpg" alt="Rose Bud Thorn Storyboarding" class="w-full h-auto object-contain">
+                </div>
+                <div class="text-content">
+                  <p class="text-gray-700">After deciding on which interactions I wanted to focus on, I created small storyboards for some of those interactions in the real world. It was really helpful to see how the app might integrate into the real world, and what the screens might look during this time.</p>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- Sitemap -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">Sitemap</h3>
+                <div class="w-full mb-4">
+                  <img src="/rbtsitemap.png" alt="Rose Bud Thorn Sitemap" class="w-full h-auto object-contain">
+                </div>
+                <div class="text-content">
+                  <p class="text-gray-700">A simple sitemap for the application.</p>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- UI Spec -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">UI Spec</h3>
+                <div class="w-full mb-4">
+                  <img src="/rbtuispec.png" alt="Rose Bud Thorn UI Specification" class="w-full h-auto object-contain">
+                </div>
+                <div class="text-content">
+                  <p class="text-gray-700">Then, I created a black and white UI spec to detail the user interactions.</p>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- Prototyping -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">Prototyping</h3>
+                <div class="w-full mb-4">
+                  <img src="/rbtprototype.png" alt="Rose Bud Thorn Prototyping" class="w-full h-auto object-contain">
+                </div>
+                <div class="text-content">
+                  <p class="text-gray-700">After iterating and testing with the UI spec, I created a high fidelity prototype on Adobe XD.</p>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- Development -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">Development</h3>
+                <div class="text-content">
+                  <p class="text-gray-700">Text content will be added here.</p>
+                </div>
+              </div>
+            </div>
+          `
+        },
+        'curiousboston': {
+          title: 'Curious Boston Case Study',
+          content: `
+            <div class="space-y-8">
+              <!-- Back Button -->
+              <div class="mb-6">
+                <button onclick="openSidePanel('archived')" class="flex items-center text-gray-600 hover:text-gray-800 text-sm font-medium cursor-pointer transition-colors">
+                  <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                  </svg>
+                  Back to Archived
+                </button>
+              </div>
+
+              <div class="intro-section">
+                <p class="text-lg text-gray-700 mb-2"><em>Winner of the Data and Digital Storytelling award at RISE 2020</em></p>
+                <p class="text-gray-700 mb-6">
+                  A team of researchers who worked with the City of Boston and community based and advocacy organizations to better understand the data needs of these organizations.
+                </p>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- The Process -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">The Process</h3>
+                <div class="text-content">
+                  <p class="text-gray-700">Our research this semester has focused on the Boston Open Data Department and their interactions with different community and advocacy organizations in the Boston Community. Through meetings with several different community organizations from a variety of sectors as well as brainstorming, prototyping and check-ins with the head of the Boston Open Data department, we identified several pain points and inefficiencies in the data flow — mostly concentrated between Data.Boston.Gov and the community and advocacy organizations they are trying to serve. You can see our research findings on the city's data process mapped out below, as well as supplementary information on key stakeholders and insights from some of the organization leaders we spoke to.</p>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- Team Goals + Interests -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">Team Goals + Interests</h3>
+                <div class="text-content">
+                  <h4 class="text-lg font-medium text-gray-900 mb-2">Initial Goals</h4>
+                  <ul class="list-disc list-inside text-gray-700 mb-4 space-y-1">
+                    <li>Making a real impact on informing the Boston community on data and data usage</li>
+                    <li>Creating something that people can use</li>
+                    <li>Ensuring accessibility of the final project</li>
+                  </ul>
+                  <h4 class="text-lg font-medium text-gray-900 mb-2">Potential Ideas of Interest</h4>
+                  <ul class="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Allowing communities to learn from within</li>
+                    <li>How to inform the general public about data security</li>
+                    <li>Accessibility to data and how it is being used</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- Research Plan -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">Research Plan</h3>
+                <div class="text-content">
+                  <h4 class="text-lg font-medium text-gray-900 mb-2">Research Questions</h4>
+                  <ul class="list-disc list-inside text-gray-700 mb-4 space-y-1">
+                    <li>Are Bostonians curious about data?</li>
+                    <li>What are Bostonians curious about regarding data?</li>
+                  </ul>
+                  <h4 class="text-lg font-medium text-gray-900 mb-2">Research Hypothesis</h4>
+                  <p class="text-gray-700 mb-4">Bostonians are curious about data but don't have the means to ask questions about it. Additionally, people don't know what questions to ask.</p>
+                  <h4 class="text-lg font-medium text-gray-900 mb-2">Goals of Project</h4>
+                  <ul class="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Find out Bostonians' curiosities regarding their data and city data</li>
+                    <li>Reveal (and increase) curiosity about data</li>
+                    <li>Present the concept of data in a positive light</li>
+                    <li>Create (and streamline) processes for the city to help (and solve) data curiosities</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- Initial Research -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">Initial Research</h3>
+                <div class="text-content">
+                  <h4 class="text-lg font-medium text-gray-900 mb-2">The General Idea</h4>
+                  <p class="text-gray-700 mb-4">To model our idea of getting people to ask the right questions, we created a vending machine with inputs and outputs to get people to ask better questions.</p>
+                  <ul class="list-disc list-inside text-gray-700 mb-4 space-y-1">
+                    <li>Inputs: Question about data</li>
+                    <li>Outputs: Better question about data</li>
+                  </ul>
+                  <h4 class="text-lg font-medium text-gray-900 mb-2">How it Worked</h4>
+                  <p class="text-gray-700 mb-4">The person would ask a question related to their neighborhood and data. The vending machine would consume the question, and ask a question in return to help the person ask a "better question" denoted by the criteria below. The person would ask an improved version of their question until they successfully asked a "good question" deemed by our standards. The machine would then celebrate this with a showering of confetti.</p>
+                  <h4 class="text-lg font-medium text-gray-900 mb-2">What is a Good Question?</h4>
+                  <ul class="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Productive: answer can be used to provide a solution to problems</li>
+                    <li>Specific: have limited possible answers</li>
+                    <li>Quantifiable: Kim can offer data resources to inform solution</li>
+                    <li>Relevant: related to the data that the city can provide</li>
+                    <li>Purposeful: include why the person is asking the question</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- Prototyping -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">Prototyping</h3>
+                <div class="w-full mb-4">
+                  <img src="/curiousbostonprototype.png" alt="Curious Boston Prototyping" class="w-full h-auto object-contain">
+                </div>
+                <div class="text-content">
+                  <p class="text-gray-700">We went through all of our possible prototype ideas and grouped them by idea and goal. Here are some rapid storyboarding sketches of possible prototypes.</p>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- Final Prototypes -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">Final Prototypes</h3>
+                <div class="text-content">
+                  <h4 class="text-lg font-medium text-gray-900 mb-2">01 Web Application</h4>
+                  <p class="text-gray-700 mb-4">Users would input basic demographic information on themselves and leave questions on this digital "wall" that Kim and other data stakeholders could later look back on to direct future department efforts and community outreach.</p>
+                  <h4 class="text-lg font-medium text-gray-900 mb-2">02 Data Representatives</h4>
+                  <p class="text-gray-700 mb-4">A person (probably one of us) whose job it is to answer and collect questions residents ask at specific points of interest. A similar example of an already existing representative could be the MBTA officers that stand on the subway platforms.</p>
+                  <h4 class="text-lg font-medium text-gray-900 mb-2">03 Question Wall</h4>
+                  <p class="text-gray-700">Question walls are large surfaces (typically sides of buildings) at street level that pose a question to people that pass by. Attached to the wall are writing implements for people to write their answers on the wall itself. The status of the wall and the answers on it are catalogued at regular instances.</p>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- Prototype Results -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">Prototype Results</h3>
+                <div class="text-content">
+                  <h4 class="text-lg font-medium text-gray-900 mb-2">Goal</h4>
+                  <p class="text-gray-700 mb-4">We aimed to use the responses to each question as a gauge on how successful each question was in garnering the information on the opportunities for Kim to direct future department efforts and community outreach.</p>
+                  <h4 class="text-lg font-medium text-gray-900 mb-2">Methods</h4>
+                  <p class="text-gray-700 mb-4">We came up with 5 questions to ask through a google form:</p>
+                  <ul class="list-disc list-inside text-gray-700 mb-4 space-y-1">
+                    <li>I think data is _____</li>
+                    <li>I think data should be _____</li>
+                    <li>I want to know _____ about my neighborhood</li>
+                    <li>My neighborhood needs _____ to help _____</li>
+                    <li>I want to help my neighborhood by _____</li>
+                  </ul>
+                  <h4 class="text-lg font-medium text-gray-900 mb-2">Results</h4>
+                  <ul class="list-disc list-inside text-gray-700 space-y-1">
+                    <li>10 Google Form Responses</li>
+                    <li>Provided insight into what makes a successful question</li>
+                    <li>Prototype was related to imagined final product, but was not an exact representation of it</li>
+                    <li>10 responses was helpful, but not a view into or representation of the whole city</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- Transitioning -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">Transitioning</h3>
+                <div class="text-content">
+                  <h4 class="text-lg font-medium text-gray-900 mb-2">Why?</h4>
+                  <p class="text-gray-700 mb-4">After conducting our first prototype, we realized that our <strong>target audience was too broad</strong>. Having all Boston citizens be the audience resulted in a very varied interest in data and goals. We checked in with Kim, and decided to <strong>narrow in on community organizations</strong> that may already be dealing with data or would like help accessing it.</p>
+                  <h4 class="text-lg font-medium text-gray-900 mb-2">New Team Goals</h4>
+                  <ul class="list-disc list-inside text-gray-700 mb-4 space-y-1">
+                    <li>Figuring out what data Boston organizations are interested in</li>
+                    <li>Creating a framework that they would find useful in asking for that data to make them self sustainable</li>
+                    <li>Streamlining processes for Kim to make data more accessible to the community</li>
+                  </ul>
+                  <h4 class="text-lg font-medium text-gray-900 mb-2">New Area of Interest</h4>
+                  <p class="text-gray-700">Creating a reusable platform for organizations to ask the city for data.</p>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- Revised Research Plan -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">Revised Research Plan</h3>
+                <div class="text-content">
+                  <h4 class="text-lg font-medium text-gray-900 mb-2">Research Questions</h4>
+                  <ul class="list-disc list-inside text-gray-700 mb-4 space-y-1">
+                    <li>What would Boston-based community, non-profit, and research organizations want from a platform that allows them to ask the city for data?</li>
+                    <li>How might we align that with what Kim and the Boston government want from the platform?</li>
+                  </ul>
+                  <h4 class="text-lg font-medium text-gray-900 mb-2">Research Hypothesis</h4>
+                  <p class="text-gray-700 mb-4">Organizations want data and access to data, but don't always know where to start looking and/or how to ask for the data.</p>
+                  <h4 class="text-lg font-medium text-gray-900 mb-2">Proposed Solution</h4>
+                  <p class="text-gray-700">A web-based platform that community, non-profit, and research organizations can use to ask the city for data.</p>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- Interviewing Community Organizations -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">Interviewing Community Organizations</h3>
+                <div class="text-content">
+                  <p class="text-gray-700">Over the course of a few months, we were able to interview people from the Boston Area Research Initiative, Asian Women for Health, LGBTQ Youth Organization, and the Boston Public Health Commission. Through these interviews we were able to better understand how each organization deals with data and were able to identify specific pain points. After interviewing, we found that there is a big gap between the City of Boston and the community organizations in terms of analyzing and understanding the data that is being provided. We compiled this data into our gigamap!</p>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- Gigamap -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">Gigamap</h3>
+                <div class="w-full mb-4">
+                  <a href="/curiousbostongigamap.pdf" target="_blank" rel="noopener noreferrer" class="cursor-pointer hover:opacity-80 transition-opacity">
+                    <img src="/curiousbostongigamap.jpg" alt="Curious Boston Gigamap" class="w-full h-auto object-contain">
+                  </a>
+                </div>
+                <div class="text-content">
+                  <p class="text-gray-700">If you want to zoom in a little more, click here to view the pdf!</p>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- Web Prototype -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">Web Prototype</h3>
+                <div class="w-full mb-4 flex justify-center space-x-4">
+                  <img src="/curiousbostonlanding.png" alt="Curious Boston Landing Page" class="w-1/2 h-auto object-contain">
+                  <img src="/curiousbostonweb.png" alt="Curious Boston Web Prototype" class="w-1/2 h-auto object-contain">
+                </div>
+                <div class="text-content">
+                  <p class="text-gray-700">After analyzing the interviews and brainstorming ideas for the prototype, we decided on a mad libs style search page for the City of Boston data portal. This would allow organizations to have an easier way to search for datasets by asking better questions.</p>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- Event Planning -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">Event Planning</h3>
+                <div class="w-full mb-4">
+                  <img src="/curiousbostonposter.png" alt="Curious Boston Event Poster" class="w-full h-auto object-contain">
+                </div>
+                <div class="text-content">
+                  <h4 class="text-lg font-medium text-gray-900 mb-2">Purpose</h4>
+                  <p class="text-gray-700 mb-4">After completing research last semester, we realized that many organizations would benefit from face to face interaction. This semester, we set off on a journey to plan two events. Unfortunately, we were only able to run one event, as the other was cancelled due to COVID-19.</p>
+                  <h4 class="text-lg font-medium text-gray-900 mb-2">Goals</h4>
+                  <ul class="list-disc list-inside text-gray-700 space-y-1">
+                    <li>How do organizations use city data?</li>
+                    <li>How would organizations like to use city data in the future?</li>
+                    <li>Generate meaningful conversation at each event</li>
+                    <li>Provide a space for skill sharing</li>
+                    <li>Connect organizations to each other</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- Event 01 -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">Event 01</h3>
+                <div class="w-full mb-4">
+                  <img src="/curiousbostonevent.jpg" alt="Curious Boston Event" class="w-full h-auto object-contain">
+                </div>
+                <div class="text-content">
+                  <h4 class="text-lg font-medium text-gray-900 mb-2">Overview</h4>
+                  <p class="text-gray-700 mb-4">We planned for our first event to be small and intimate and at Northeastern Crossing, a public space that can be booked my almost anyone! We posted our event on eventbrite, and sent invitations to any organizations we had reached out to as well as new organizations.</p>
+                  <h4 class="text-lg font-medium text-gray-900 mb-2">Agenda</h4>
+                  <ul class="list-disc list-inside text-gray-700 mb-4 space-y-1">
+                    <li>Introductions: getting people comfortable and establishing the purpose of the event</li>
+                    <li>Boston Area Research Initiative Data Training Session: We had a researcher from BARI come in to give a brief overview of a data mapping tool that organizations could explore</li>
+                    <li>Interactive Data Activity: We organized an activity for organizations to learn from other organizations for how they approached challenges with data</li>
+                  </ul>
+                  <h4 class="text-lg font-medium text-gray-900 mb-2">Event 01 Feedback</h4>
+                  <h5 class="text-md font-medium text-gray-900 mb-2">Survey Results</h5>
+                  <p class="text-gray-700 mb-4">After the event, we provided questionnaires. We found a few things:</p>
+                  <ul class="list-disc list-inside text-gray-700 mb-4 space-y-1">
+                    <li>Most people were comfortable interpreting data sets but not analyzing them</li>
+                    <li>Most organizations don't have the resources or time to send people to get trained in data. They are looking for people to do that for them.</li>
+                  </ul>
+                  <h5 class="text-md font-medium text-gray-900 mb-2">Retrospective</h5>
+                  <p class="text-gray-700 mb-4">For our team retrospective, we found a couple of things to improve upon:</p>
+                  <ul class="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Spend more time explaining our research</li>
+                    <li>Focus on networking and person to person interaction</li>
+                    <li>Give more context for everything we may be presenting</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- Event 02 -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">Event 02</h3>
+                <div class="text-content">
+                  <h4 class="text-lg font-medium text-gray-900 mb-2">Overview</h4>
+                  <p class="text-gray-700 mb-4">Due to the COVID-19 outbreak, we were not able to host a second event. Here is what we might have planned.</p>
+                  <h4 class="text-lg font-medium text-gray-900 mb-2">Presentation</h4>
+                  <ul class="list-disc list-inside text-gray-700 mb-4 space-y-1">
+                    <li>A high level overview of our research</li>
+                    <li>Walk through use cases of City Data and how they are translated into projects</li>
+                    <li>Have a representative from the City of Boston attend the event</li>
+                  </ul>
+                  <h4 class="text-lg font-medium text-gray-900 mb-2">Networking</h4>
+                  <p class="text-gray-700">Throughout our first event, there was a lot of networking that was successful. For this event, we would build on that with a more dedicated set of time for networking!</p>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <hr class="border-gray-200">
+
+              <!-- Ideas for the Future -->
+              <div class="section">
+                <h3 class="text-xl font-medium text-gray-900 mb-4">Ideas for the Future</h3>
+                <div class="text-content">
+                  <p class="text-gray-700">We are packaging up both the prototype and the event content for the City of Boston to hopefully implement over the coming years. We hope that the integration of our UX research into the City of Boston data portal will help community organizations have better access to the data and resources they might need to reach their goals.</p>
+                </div>
+              </div>
+            </div>
+          `
+        },
+        'aboutme': {
+          title: 'About Me',
+          content: `
+            <div class="space-y-8">
+              <!-- Profile Image -->
+              <div class="flex justify-center mb-8">
+                <div class="w-64 h-64 rounded-full overflow-hidden shadow-lg">
+                  <img src="/rucha.png" alt="Rucha Khanolkar" class="w-full h-full object-cover">
+                </div>
+              </div>
+
+              <!-- Full Name -->
+              <div class="text-center mb-6">
+                <h2 class="text-3xl font-bold text-gray-900">Rucha Khanolkar</h2>
+              </div>
+
+              <!-- About Text -->
+              <div class="mb-8">
+                <p class="text-gray-700 text-lg leading-relaxed">
+                  [Add your personal story and journey here. This is where you can share your background, what drives you, your passion for design and technology, and any other personal details you'd like visitors to know about you.]
+                </p>
+              </div>
+
+              <!-- Social Links -->
+              <div class="border-t border-gray-200 pt-8">
+                <h3 class="text-lg font-medium text-gray-900 mb-4">Connect with me</h3>
+                <div class="flex flex-col space-y-3">
+                  <a href="https://www.linkedin.com/in/your-linkedin-profile" target="_blank" rel="noopener noreferrer" class="flex items-center text-gray-700 hover:text-blue-600 transition-colors">
+                    <svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                    LinkedIn
+                  </a>
+                  <a href="https://ruchulya.medium.com/" target="_blank" rel="noopener noreferrer" class="flex items-center text-gray-700 hover:text-green-600 transition-colors">
+                    <svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+                    </svg>
+                    Medium
+                  </a>
+                  <a href="https://github.com/your-github-username" target="_blank" rel="noopener noreferrer" class="flex items-center text-gray-700 hover:text-gray-900 transition-colors">
+                    <svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    GitHub
+                  </a>
+                </div>
+              </div>
+            </div>
+          `
+        },
+        'ceramics': {
+            title: 'Ceramics',
+            content: `
+              <div class="space-y-8">
+                <p class="text-gray-700 text-lg leading-relaxed mb-8">
+                  I took my first ceramics class 3 years ago and fell in love. Since then, I've taken several courses at Greenwich House Pottery and Choplet Studios. I find the wheel to be challenging and it allows me to fully sink into a physical art form that involves concentration, patience and focus. These are some of the pots and vessels I've created over the past few years.
+                </p>
+                
+                <!-- Pottery Collage -->
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  <div class="flex justify-center">
+                    <img src="/pottery1.JPG" alt="Ceramic piece 1" class="w-full h-auto object-contain rounded-lg shadow-sm">
+                  </div>
+                  <div class="flex justify-center">
+                    <img src="/pottery2.JPG" alt="Ceramic piece 2" class="w-full h-auto object-contain rounded-lg shadow-sm">
+                  </div>
+                  <div class="flex justify-center">
+                    <img src="/pottery3.JPG" alt="Ceramic piece 3" class="w-full h-auto object-contain rounded-lg shadow-sm">
+                  </div>
+                  <div class="flex justify-center">
+                    <img src="/pottery4.JPG" alt="Ceramic piece 4" class="w-full h-auto object-contain rounded-lg shadow-sm">
+                  </div>
+                  <div class="flex justify-center">
+                    <img src="/pottery5.JPG" alt="Ceramic piece 5" class="w-full h-auto object-contain rounded-lg shadow-sm">
+                  </div>
+                  <div class="flex justify-center">
+                    <img src="/pottery6.JPG" alt="Ceramic piece 6" class="w-full h-auto object-contain rounded-lg shadow-sm">
+                  </div>
+                  <div class="flex justify-center">
+                    <img src="/pottery7.JPG" alt="Ceramic piece 7" class="w-full h-auto object-contain rounded-lg shadow-sm">
+                  </div>
+                  <div class="flex justify-center">
+                    <img src="/pottery8.JPG" alt="Ceramic piece 8" class="w-full h-auto object-contain rounded-lg shadow-sm">
+                  </div>
+                  <div class="flex justify-center">
+                    <img src="/pottery9.JPG" alt="Ceramic piece 9" class="w-full h-auto object-contain rounded-lg shadow-sm">
+                  </div>
+                </div>
+              </div>
+            `
+          }
+        };
+        
+        // Set content
+        title.textContent = contentMap[section].title;
+        body.innerHTML = contentMap[section].content;
+        
+        // Show panel
+        panel.classList.remove('hidden');
+        
+        // Animate in
+        setTimeout(() => {
+          content.classList.remove('translate-x-full');
+        }, 10);
+      };
+      
+      window.closeSidePanel = function() {
+        const panel = document.getElementById('sidePanel');
+        const content = document.getElementById('sidePanelContent');
+        
+        if (!panel || !content) {
+          console.error('Side panel elements not found');
+          return;
+        }
+        
+        // Animate out
+        content.classList.add('translate-x-full');
+        
+        // Hide after animation
+        setTimeout(() => {
+          panel.classList.add('hidden');
+        }, 300);
+      };
+      
+      // Close on Escape key
+      document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+          window.closeSidePanel();
+        }
+      });
+    </script>
+
+  </body>
+</html>
