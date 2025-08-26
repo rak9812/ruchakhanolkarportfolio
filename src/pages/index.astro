@@ -28,8 +28,8 @@ import Layout from '../layouts/Layout.astro';
             <button onclick="openSidePanel('ceramics')" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full hover:bg-gray-200 transition-colors text-sm font-medium cursor-pointer">
               Ceramics
             </button>
-            <button onclick="openSidePanel('archived')" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full hover:bg-gray-200 transition-colors text-sm font-medium cursor-pointer">
-              Archived
+                            <button onclick="openSidePanel('archived')" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full hover:bg-gray-200 transition-colors text-sm font-medium cursor-pointer">
+                  Older Stuff
             </button>
             <button onclick="openSidePanel('aboutme')" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full hover:bg-gray-200 transition-colors text-sm font-medium cursor-pointer">
               About Me
@@ -70,7 +70,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
       
       <!-- Content -->
-      <div class="p-4 md:p-6 overflow-y-auto h-full pb-32 md:pb-80" id="sidePanelBody">
+              <div class="p-4 md:p-6 overflow-y-auto h-full pb-32 md:pb-96" id="sidePanelBody">
         <!-- Dynamic content will be loaded here -->
       </div>
     </div>
